@@ -62,7 +62,9 @@ app.post('/transcribe',
           fileName: file.name,
           content: new Uint8Array(await file.arrayBuffer())
         },
-        language: language
+        language: language,
+        timestampGranularities: ["segment"],
+        diarize: true
       });
       return c.json({
         segments: response.segments,
