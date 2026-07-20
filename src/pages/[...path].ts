@@ -68,8 +68,9 @@ app.post('/transcribe',
         segments: response.segments,
         text: response.text
       }, 200);
-    } catch {
-      return c.text("Transcribe Error", 500)
+    } catch (e){
+      console.error(e);
+      return c.text("Transcribe Error", 500);
     };
   });
 
